@@ -12,8 +12,8 @@ def main():
     1800 to 2080, with every 40th year label displayed and rotated for clarity.
     The graph includes a title, axis labels, legend, and grid.
     """
-    dataframe = load("life_expectancy_years.csv")
-    spain_data = dataframe[dataframe['country'] == 'Spain']
+    df = load("life_expectancy_years.csv")
+    spain_data = df[df['country'] == 'Spain']
     years = spain_data.columns[1:]
     life_expectancy = spain_data.values[0][1:]
 
