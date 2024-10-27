@@ -32,9 +32,9 @@ def main():
     plots the population comparison of Spain and Italy.
     """
     try:
-        data = load("population_total.csv")
+        df = load("population_total.csv")
 
-        if data is None:
+        if df is None:
             raise FileNotFoundError("The dataset could not be loaded.")
 
         # Countries to compare
@@ -42,12 +42,12 @@ def main():
         country2 = "Italy"
 
         # Check if the countries are in the dataset
-        if country1 not in data['country'].values or country2 not in data['country'].values:
+        if country1 not in df['country'].values or country2 not in df['country'].values:
             raise ValueError(f"One or both countries are not in the dataset: {country1}, {country2}")
 
         # Filter the data of the selected countries
-        country1_data = data[data['country'] == country1].iloc[:, 1:]
-        country2_data = data[data['country'] == country2].iloc[:, 1:]
+        country1_data = df[df['country'] == country1].iloc[:, 1:]
+        country2_data = df[df['country'] == country2].iloc[:, 1:]
 
         # Flatten the data and convert to numeric format
         country1_pop = country1_data.values.flatten()
@@ -77,7 +77,7 @@ def main():
         y_ticks = [i * 20e6 for i in range(int(max_pop / 20e6) + 1)]
         y_ticks = [tick for tick in y_ticks if tick != 0]  # Remove 0M
         plt.yticks(y_ticks, ["{:,.0f}M".format(pop / 1e6) for pop in y_ticks])
-        
+
         plt.show()
 
     except (FileNotFoundError, ValueError) as error:

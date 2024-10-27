@@ -8,10 +8,18 @@ def main():
     the year 1900 and visualizes the correlation between GNP and life
     expectancy through a scatter plot.
     """
-    # Load data from CSV files
-    income_data = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
-    life_expectancy_years = load("life_expectancy_years.csv")
+    try:
+        # Load data from CSV files
+        income_data = load("income_per_person_gdppercapita_ppp_inflation_adjusted.csv")
+        life_expectancy_years = load("life_expectancy_years.csv")
+
+        # Check if any of the loas is None
+        if income_data is None or life_expectancy_years is None:
+            raise ValueError("Error: One or more CSV files could not be loaded.")
     
+    except Exception as e:
+        raise RuntimeError(f"Unexpected error during file loading: {e}")
+
     # Define the year of interest
     year_1900_column = '1900'
     
@@ -30,7 +38,7 @@ def main():
     
     # Create the scatter plot
     plt.figure(figsize=(10, 6))
-    plt.scatter(gnp_1900, life_expectancy_1900, color='green', alpha=0.7, edgecolors='w', s=100)
+    plt.scatter(gnp_1900, life_expectancy_1900, color='blue', alpha=0.7, edgecolors='w', s=100)
     plt.title("1900")
     plt.xlabel("Gross domestic product")
     plt.ylabel("Life Expectancy")
