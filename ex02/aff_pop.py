@@ -1,20 +1,18 @@
 from load_csv import load
 import matplotlib.pyplot as plt
 
+
 def population_conversion(pop_str):
     """
-    Preprocesses the population string to convert it into
+    Convert the population_data string into
     a numeric value in standard form.
 
     Args:
-        pop_str (str): Population string with or without
-        the 'M' suffix for million or 'k' suffix for thousand.
+        pop_str (str): Population string with
+        the 'M' suffix for million or  'K' for thousands
 
     Returns:
         float: Numeric population value.
-
-    Raises:
-        ValueError: If the population string cannot be converted to a float.
     """
     try:
         if pop_str.endswith("M"):
@@ -25,6 +23,7 @@ def population_conversion(pop_str):
             return float(pop_str)
     except ValueError as e:
         raise ValueError(f"Error processing population value '{pop_str}': {e}")
+
 
 def main():
     """
@@ -42,8 +41,17 @@ def main():
         country2 = "Italy"
 
         # Check if the countries are in the dataset
+<<<<<<< HEAD
         if country1 not in df['country'].values or country2 not in df['country'].values:
             raise ValueError(f"One or both countries are not in the dataset: {country1}, {country2}")
+=======
+        if (country1 not in data['country'].values or
+                country2 not in data['country'].values):
+            raise ValueError(
+                f"One or both countries are not in the dataset: {country1}, "
+                f"{country2}"
+                )
+>>>>>>> 3361dc0f213b434d6bb8dbef4db91498fc08efbb
 
         # Filter the data of the selected countries
         country1_data = df[df['country'] == country1].iloc[:, 1:]
@@ -77,13 +85,17 @@ def main():
         y_ticks = [i * 20e6 for i in range(int(max_pop / 20e6) + 1)]
         y_ticks = [tick for tick in y_ticks if tick != 0]  # Remove 0M
         plt.yticks(y_ticks, ["{:,.0f}M".format(pop / 1e6) for pop in y_ticks])
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3361dc0f213b434d6bb8dbef4db91498fc08efbb
         plt.show()
 
     except (FileNotFoundError, ValueError) as error:
         print(__name__ + ":", error)
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
+
 
 if __name__ == "__main__":
     main()
