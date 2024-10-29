@@ -13,24 +13,27 @@ def main():
     The graph includes a title, axis labels, legend, and grid.
     """
     try:
+
         df = load("life_expectancy_years.csv")
-        
-        # Verificar si la carga fue None
+
+        # Check if load returned None
         if df is None:
             raise FileNotFoundError("The dataset could not be loaded.")
-        
+
+        # Filter for Spain's data
         spain_data = df[df['country'] == 'Spain']
-        years = spain_data.columns[1:]
+
+        # Extract years and life expectancy values
+        years = spain_data.columns[1:].astype(int)
         life_expectancy = spain_data.values[0][1:]
 
-        plt.plot(years, life_expectancy, label='Spain')
-        plt.title('Spain Life expectancy Projections')
+        # Plotting
+        plt.plot(years, life_expectancy)
+        plt.title('Spain Life Expectancy Projections')
         plt.xlabel('Year')
         plt.xticks(years[::40])
         plt.ylabel('Life Expectancy')
         plt.yticks(range(30, 91, 10))
-        plt.legend()
-        plt.tight_layout()
         plt.show()
 
     except Exception as e:

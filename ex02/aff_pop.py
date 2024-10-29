@@ -31,15 +31,14 @@ def main():
     plots the population comparison of Spain and Italy.
     """
     try:
-        df = load("population_total.csv")
+        data = load("pulation_total.csv")
 
-        if df is None:
+        if data is None:
             raise FileNotFoundError("The dataset could not be loaded.")
 
         # Countries to compare
         country1 = "Spain"
         country2 = "Italy"
-
         # Check if the countries are in the dataset
         if (country1 not in data['country'].values or
                 country2 not in data['country'].values):
@@ -49,8 +48,8 @@ def main():
                 )
 
         # Filter the data of the selected countries
-        country1_data = df[df['country'] == country1].iloc[:, 1:]
-        country2_data = df[df['country'] == country2].iloc[:, 1:]
+        country1_data = data[data['country'] == country1].iloc[:, 1:]
+        country2_data = data[data['country'] == country2].iloc[:, 1:]
 
         # Flatten the data and convert to numeric format
         country1_pop = country1_data.values.flatten()
@@ -70,7 +69,7 @@ def main():
 
         plt.title("Population Projections")
         plt.xlabel("Year")
-        plt.xticks(range(1800, 2051, 40), range(1800, 2051, 40))
+        plt.xticks(range(1800, 2051, 40))
         plt.xlim(1790, 2050)
         plt.ylabel("Population")
         plt.legend(loc='lower right')
@@ -83,7 +82,7 @@ def main():
         plt.show()
 
     except (FileNotFoundError, ValueError) as error:
-        print(__name__ + ":", error)
+        print(f"{error}")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
 
