@@ -1,18 +1,16 @@
-# 💻 Piscine Python for Data Science - DAtaTable
+# 💻 Piscine Python for Data Science - DataTable
 
 <p align="justify">
-Este proyecto está diseñado para introducirse en el uso y manipulación de arrays, con un enfoque práctico en el procesamiento de imágenes. A lo largo de los ejercicios, aprenderás a trabajar con arrays multidimensionales, realizar operaciones de slicing, aplicar transformaciones, y manejar imágenes con herramientas específicas.
+Este módulo ofrece una introducción práctica y fundamentada a la manipulación y visualización de datos, preparándote para proyectos más avanzados en ciencias de datos.
 </p>
 
 ### 🧩 Resumen de Ejercicios
 
-| **Ejercicio** | **Descripción**                                                                                         |
-|---------------|---------------------------------------------------------------------------------------------------------|
-| **ex00**        | Implementa una función para calcular el índice de masa corporal (BMI) y verifica si está por encima de un límite. |
-| **ex01**        | Crea una función que manipula arrays 2D, imprime sus dimensiones y devuelve una versión truncada.         |
-| **ex02**        | Desarrolla una función para cargar una imagen y mostrar su contenido en formato RGB.                     |
-| **ex03**        | Realiza un programa que amplía una imagen, mostrando detalles específicos con un zoom.                   |
-| **ex04**        | Diseña un programa que recorta y rota una imagen utilizando operaciones de transposición.                |
-| **ex05**        | Implementa filtros de color personalizados (invertir, rojo, verde, azul y gris) para imágenes.           |
+| **Ejercicio**     | **Descripción**                                                                                         |
+|--------------------|-------------------------------------------------------------------------------------------------------|
+| **ex00**  | Crear una función para cargar un archivo CSV, mostrar sus dimensiones y devolverlo en formato manipulable. |
+| **ex01**  | Visualizar los datos de expectativa de vida de un país específico utilizando gráficos.                  |
+| **ex02**  | Comparar los datos de población total de un país contra otro en un rango de años (1800-2050).           |
+| **ex03**  | Graficar la correlación entre el PIB per cápita y la expectativa de vida en 1900.                       |
 
 ### 🏆 Evaluación
