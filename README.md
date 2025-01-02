@@ -14,3 +14,7 @@ Este módulo ofrece una introducción práctica y fundamentada a la manipulació
 | **ex03**  | Graficar la correlación entre el PIB per cápita y la expectativa de vida en 1900.                       |
 
 ### 🏆 Evaluación
+
+<p align="left">
+  <img src="https://github.com/svarelavila/svarelavila/blob/main/imagenes/ok_100.png" alt="logo" width="125"/>
+</p>
